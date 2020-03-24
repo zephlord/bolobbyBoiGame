@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Singleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static readonly Lazy<T> LazyInstance = new Lazy<T>(CreateSingleton);
+    private static readonly System.Lazy<T> LazyInstance = new System.Lazy<T>(CreateSingleton);
 
     public static T Instance => LazyInstance.Value;
 
