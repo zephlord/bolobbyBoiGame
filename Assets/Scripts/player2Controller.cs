@@ -24,57 +24,57 @@ public class player2Controller : MonoBehaviour
         float currentYVel = currentVel.y;
         float currentXVel = currentVel.x;
         if(Input.GetKey(KeyCode.UpArrow)) {
-            //currentYVel = Mathf.Min(maxVelocity.y, currentYVel + (Time.deltaTime * acceleration));
-            //currentVel.y = currentYVel;
-            player.AddForce(Vector2.up * force);
+            currentYVel = Mathf.Min(maxVelocity.y, currentYVel + (Time.deltaTime * acceleration));
+            currentVel.y = currentYVel;
+            // player.AddForce(Vector2.up * force);
 
         }
 
         else if(Input.GetKey(KeyCode.DownArrow)) {
-            // currentYVel = Mathf.Max(-maxVelocity.y, currentYVel - (Time.deltaTime * acceleration));
-            // currentVel.y = currentYVel;
-            player.AddForce(Vector2.down * force);
+            currentYVel = Mathf.Max(-maxVelocity.y, currentYVel - (Time.deltaTime * acceleration));
+            currentVel.y = currentYVel;
+            // player.AddForce(Vector2.down * force);
         }
 
-        // else {
-        //     if(player.velocity.y > 0)
-        //     {
-        //         currentYVel = Mathf.Max(0, currentYVel - (Time.deltaTime * deceleration));
-        //         currentVel.y = currentYVel;
-        //     }
-        //     else if(player.velocity.y < 0)
-        //     {
-        //         currentYVel = Mathf.Min(0, currentYVel + (Time.deltaTime * deceleration));
-        //         currentVel.y = currentYVel;
-        //     }
-        // }
+        else {
+            if(player.velocity.y > 0)
+            {
+                currentYVel = Mathf.Max(0, currentYVel - (Time.deltaTime * deceleration));
+                currentVel.y = currentYVel;
+            }
+            else if(player.velocity.y < 0)
+            {
+                currentYVel = Mathf.Min(0, currentYVel + (Time.deltaTime * deceleration));
+                currentVel.y = currentYVel;
+            }
+        }
 
 
         if(Input.GetKey(KeyCode.RightArrow)) {
-            // currentXVel = Mathf.Min(maxVelocity.x, currentXVel + (Time.deltaTime * acceleration));
-            // currentVel.x = currentXVel;
-            player.AddForce(Vector2.right * force); 
+            currentXVel = Mathf.Min(maxVelocity.x, currentXVel + (Time.deltaTime * acceleration));
+            currentVel.x = currentXVel;
+            // player.AddForce(Vector2.right * force); 
         }
 
         else if(Input.GetKey(KeyCode.LeftArrow)) {
-            // currentXVel = Mathf.Max(-maxVelocity.x, currentXVel - (Time.deltaTime * acceleration));
-            // currentVel.x = currentXVel;
-            player.AddForce(Vector2.left * force);
+            currentXVel = Mathf.Max(-maxVelocity.x, currentXVel - (Time.deltaTime * acceleration));
+            currentVel.x = currentXVel;
+            // player.AddForce(Vector2.left * force);
         }
 
-        // else {
-        //     if(player.velocity.x > 0)
-        //     {
-        //         currentXVel = Mathf.Max(0, currentXVel - (Time.deltaTime * deceleration));
-        //         currentVel.x = currentXVel;
-        //     }
-        //     else if(player.velocity.x < 0)
-        //     {
-        //         currentXVel = Mathf.Min(0, currentXVel + (Time.deltaTime * deceleration));
-        //         currentVel.x = currentXVel;
-        //     }
-        // }
+        else {
+            if(player.velocity.x > 0)
+            {
+                currentXVel = Mathf.Max(0, currentXVel - (Time.deltaTime * deceleration));
+                currentVel.x = currentXVel;
+            }
+            else if(player.velocity.x < 0)
+            {
+                currentXVel = Mathf.Min(0, currentXVel + (Time.deltaTime * deceleration));
+                currentVel.x = currentXVel;
+            }
+        }
 
-        //player.velocity = currentVel;
+        player.velocity = currentVel;
     }
 }
